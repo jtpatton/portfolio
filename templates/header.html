@@ -1,0 +1,40 @@
+		<div class="container">
+			<div class="top row">
+				<h1><a ui-sref="home">James Tyler Patton</a></h1>
+				<div class="time">
+					<img src="images/wifi.png" alt="wifi" width="25" height="25" />
+					<img src="images/battery-charging.png" alt="battery-charging" width="25" height="25" />
+					{{ AssignedDate.now() | date : 'EEE h:mm a'}}
+				</div>
+			</div>
+			<div class="sidebar">
+				<nav>
+					<ul>
+						<li ui-sref-active="active" class="nav-item">
+							<a ui-sref="portfolio">
+							<img src="images/icon4.png" alt="icon4" width="65" height="65" />
+							<br>Portfolio
+							</a>
+						</li>
+						<li ui-sref-active="active" class="nav-item">
+							<a ui-sref="about">
+							<img src="images/icon3.png" alt="icon3" width="65" height="65" />
+							<br>About
+							</a>
+						</li>
+						<li ui-sref-active="active" class="nav-item">
+							<a ui-sref="resume">
+							<img src="images/icon1.png" alt="icon1" width="65" height="65" />
+							<br>Resume
+							</a>
+						</li>
+						<li ui-sref-active="active" class="nav-item">
+							<a ui-sref="contact">
+							<img src="images/icon2.png" alt="icon2" width="65" height="65" />
+							<br>Contact
+							</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</div>
