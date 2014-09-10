@@ -486,6 +486,7 @@ form{
 	text-align: right;
 }
 .submit button,
+.submit input,
 .download-resume{
 	background: transparent;
 	border: 2px solid $red;
@@ -494,6 +495,7 @@ form{
 	@include transition(.2s);
 }
 .submit button:hover,
+.submit input:hover,
 .download-resume:hover{
 	background: $red;
 	color: #fff;

@@ -35,38 +35,7 @@ app
 	})
 	.controller('contactCtrl', function($scope, $http){
 		//http://www.chaosm.net/blog/2014/05/21/angularjs-contact-form-with-bootstrap-and-phpmailer/
-		$scope.result = 'hidden'
-		$scope.resultMessage;
-		$scope.formData;
-		$scope.submitButtonDisabled = false;
-		$scope.submitted = false;
-		$scope.submit = function(contactform) {
-			$scope.submitted = true;
-			$scope.submitButtonDisabled = true;
-			if (contactform.$valid) {
-				$http({
-					method  : 'POST',
-					url     : 'send_form.php',
-					data    : $.param($scope.formData),
-					headers : { 'Content-Type': 'application/x-www-form-urlencoded' }
-				}).success(function(data){
-					console.log(data);
-					if (data.success) {
-						$scope.submitButtonDisabled = true;
-						$scope.resultMessage = data.message;
-						$scope.result='bg-success';
-					}else{
-						$scope.submitButtonDisabled = false;
-						$scope.resultMessage = data.message;
-						$scope.result='bg-danger';
-					}
-				});
-			}else{
-				$scope.submitButtonDisabled = false;
-				$scope.resultMessage = 'Failed Please Fill out all fields';
-				$scope.result='bg-danger';
-			}
-		}
+	    
 		
 		$(".window-contain").draggable({handle: ".windowhead", containment: [ 105, 50, 10000, 10000]});
 	})

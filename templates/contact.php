@@ -18,46 +18,43 @@
 			http://www.freecontactform.com/email_form.php
 			-->
 
-			
-
-				<!-- <form id="contactForm" name="contactform" ng-submit="processForm()" novalidate> -->
-				<form ng-submit="submit(contactform)" name="contactform" method="POST" action="" role="form">
-					<div class="form-item" ng-class="{ 'has-error' : contactform.name.$invalid && !contactform.name.$pristine }">
+				<form name="contactform">
+					<div class="form-item" ng-class="{ 'has-error' : contactform.inputName.$invalid && !contactform.inputName.$pristine }">
 						<div class="item-left">
-							<label for="name">Name</label>
-							<input type="text" ng-model="formData.inputName" id="inputName" name="inputName" placeholder="Name*" minlength="5" maxlength="30" autocomplete="off" required />
+							<label for="inputName">Name</label>
+							<input type="text" ng-model="formData.inputName" id="inputName" name="inputName" placeholder="Name*" ng-minlength="5" maxlength="30" autocomplete="off" required />
 							<!--<small ng-show="contactform.name.$invalid && !contactform.name.$pristine">This name is not valid</small>-->
 						</div>
 					</div>
-					<div class="form-item" ng-class="{ 'has-error' : contactform.email.$invalid && !contactform.email.$pristine }">
+					<div class="form-item" ng-class="{ 'has-error' : contactform.inputEmail.$invalid && !contactform.inputEmail.$pristine }">
 						<div class="item-right">
-							<label for="email">Email</label>
-							<input type="email" ng-model="formData.inputEmail" id="inputEmail" name="inputEmail" placeholder="Email*" minlength="5" maxlength="35" autocomplete="off" required />
-							<!--<small ng-show="contactform.email.$invalid && !contactform.email.$pristine">This email is not valid</small>-->
+							<label for="inputEmail">Email</label>
+							<input type="email" ng-model="formData.inputEmail" id="inputEmail" name="inputEmail" placeholder="Email*" ng-minlength="5" maxlength="35" autocomplete="off" required />
 						</div>
 					</div>
 					<div class="form-item">
 						<div class="item-left">
-							<label for="company">Company</label>
-							<input type="text" ng-model="formData.inputCompany" id="inputCompany" name="inputCompany" placeholder="Company" minlength="2" maxlength="35" autocomplete="off" />
+							<label for="inputCompany">Company</label>
+							<input type="text" ng-model="formData.inputCompany" id="inputCompany" name="inputCompany" placeholder="Company" autocomplete="off" />
 						</div>
 					</div>
 					<div class="form-item">
 						<div class="item-right">
-							<label for="phone">Phone</label>
-							<input type="text" ng-model="formData.inputPhone" id="inputPhone" name="inputPhone" placeholder="Phone Number" minlength="2" maxlength="20" autocomplete="off" />
+							<label for="inputPhone">Phone</label>
+							<input type="text" ng-model="formData.inputPhone" id="inputPhone" name="inputPhone" placeholder="Phone Number" autocomplete="off" />
 						</div>
 					</div>
-					<div class="form-item message" ng-class="{ 'has-error' : contactform.message.$invalid && !contactform.message.$pristine }">
-						<label for="message">Message</label>
+					<div class="form-item message" ng-class="{ 'has-error' : contactform.inputMessage.$invalid && !contactform.inputMessage.$pristine }">
+						<label for="inputMessage">Message</label>
 						<textarea name="inputMessage" id="inputMessage" placeholder="Message*" ng-model="formData.inputMessage" ng-minlength="5" required></textarea>
 						
 					</div>
+					<!-- <div class="submit">
+						<button type="submit" >Submit</button>
+					</div> -->
 					<div class="submit">
-						<button type="submit" ng-disabled="submitButtonDisabled">Submit</button>
+						<input type="submit" value="submit" />
 					</div>
-
-					<p ng-class="result" style="padding: 15px; margin: 0;">{{ resultMessage }}</p>
 
 				</form>
 			</div>
