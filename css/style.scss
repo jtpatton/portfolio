@@ -38,12 +38,12 @@ $silver2: #e0e8e7;
   }
 }
 
-@mixin transition($dur, $trans){
-	-webkit-transition: all $dur $trans;
-	   -moz-transition: all $dur $trans;
-	    -ms-transition: all $dur $trans;
-	     -o-transition: all $dur $trans;
-	        transition: all $dur $trans;
+@mixin transition($dur){
+	-webkit-transition: all $dur;
+	   -moz-transition: all $dur;
+	    -ms-transition: all $dur;
+	     -o-transition: all $dur;
+	        transition: all $dur;
 }
 
 .typed-cursor{
@@ -104,6 +104,9 @@ h1 a, h1 a:hover, h1 a:active, h1 a:visited{
 a, a:hover, a:active, a:visited{
 	color: #888888;
 	text-decoration: none;
+}
+a:hover{
+	color: $red;
 }
 .hidden{
 	display: none;
@@ -250,7 +253,6 @@ header .time img{
 	margin-left: 100px;
 	margin-top: 20px;
 	height: 100%;
-	@include transition(.6, ease);
 }
 .main > .row{
 	margin-top: 20px;
@@ -360,7 +362,7 @@ img.sitelogo{
 }
 .portfolio > .row{
 	margin-bottom: 80px;
-	@include transition(.6, ease);
+	@include transition(.6s);
 }
 .portfolio > .row:last-child{
 	padding-bottom: 0;
@@ -412,8 +414,9 @@ label{
 	display: none;
 }
 form{
-	overflow: hidden;
+	/*overflow: hidden;*/
 	margin-bottom: 40px;
+	margin-top: 10px;
 }
 ::-webkit-input-placeholder {
    color: #999;
@@ -431,6 +434,9 @@ form{
 	width: 50%;
 	float: left;
 }
+.form-item:nth-child(3){
+	clear: left;
+}
 .form-item .item-left{
 	padding-right: 5px;
 	margin-bottom: 10px;
@@ -440,8 +446,10 @@ form{
 	margin-bottom: 10px;
 }
 .form-item input:focus,
-.form-item textarea:focus{
-	background-color: #F0F0F0;
+.form-item textarea:focus,
+.form-item button:focus{
+	/*background-color: #F0F0F0;*/
+	background-color: #fff;
 }
 .form-item.message{
 	width: 100%;
@@ -460,22 +468,32 @@ form{
 	resize: none;
 }
 .form-item input:focus, 
-.form-item textarea:focus{
+.form-item textarea:focus,
+.form-item button:focus{
 	outline: none;
+}
+.form-item.has-error input,
+.form-item.has-error textarea{
+	border: 2px solid #E98D92;
+	box-shadow: 0 0 5px 0 #E98D92;
+}
+.form-item small{
+	color: #E98D92;
 }
 .submit{
 	clear: both;
 	padding-top: 10px;
 	text-align: right;
 }
-.submit input,
+.submit button,
 .download-resume{
 	background: transparent;
 	border: 2px solid $red;
 	color: $red;
 	padding: 10px 20px;
+	@include transition(.2s);
 }
-.submit input:hover,
+.submit button:hover,
 .download-resume:hover{
 	background: $red;
 	color: #fff;
@@ -484,9 +502,6 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill{
 	background-color: transparent;
 }
 
-.contact-side{
-	overflow: hidden;
-}
 .icons{
 	display: block;
 	overflow: hidden;
@@ -497,14 +512,25 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill{
 	display: block;
 	float: left;
 	margin-right: 15px;
+	border-bottom: 0px solid #000;
+	opacity: .7;
+	@include transition(.3s);
 }
 .social-icons img{
 	width: 100%;
+}
+.social-icons:hover{
+	border-bottom: 4px solid #000;
+	opacity: .8;
+	margin-top: -2px;
 }
 .contact h4{
 	margin-top: 0;
 	margin-bottom: 10px;
 }
+/*.contact-side{
+	text-align: center;
+}*/
 
 @media (max-width: 1100px){
 	.portfolio [class*='col'],
@@ -527,7 +553,7 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill{
 	}
 
 	.social-icons{
-		width: 80px;
+		width: 50px;
 		margin-right: 10px;
 	}
 	.social-icons:last-child{
@@ -556,24 +582,6 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill{
 	header .time{
 		display: none;
 	}
-	/*
-	header .navtogg{
-		float: right;
-		cursor: pointer;
-	}
-	header .navtogg .icon-bar {
-		width: 25px;
-		height: 4px;
-		background: #303030;
-		display: block;
-		content: '';
-		margin-bottom: 3px;
-		border-radius: 3px;
-	}
-	header .navtogg .icon-bar:first-child {
-		margin-top: 8px;
-	}
-	*/
 	header h1{
 		font-size: 18px;
 	}

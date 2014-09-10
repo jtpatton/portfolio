@@ -1,55 +1,36 @@
 <?php
+require_once 'phpmailer/PHPMailerAutoload.php';
 
-if(isset($_POST['email'])){
-	$email_to = 'jamestylerpatton@gmail.com';
-	$email_subject = 'Contact From Portfolio';
+if (isset($_POST['inputName']) && isset($_POST['inputEmail']) && isset($_POST['inputMessage'])) {
 
-	function died($error){
-		echo "We are very sorry, but there were error(s) found with the form you submitted. ";
-        echo "These errors appear below.<br /><br />";
-        echo $error."<br /><br />";
-        echo "Please go back and fix these errors.<br /><br />";
- 
-        die();
-	}
-
-	if(!isset($_POST['name']) ||
-        !isset($_POST['email']) ||
-        !isset($_POST['message'])) {
-        died('We are sorry, but there appears to be a problem with the form you submitted.');       
+    //check if any of the inputs are empty
+    if (empty($_POST['inputName']) || empty($_POST['inputEmail']) || empty($_POST['inputMessage'])) {
+        $data = array('success' => false, 'message' => 'Please fill out the form completely.');
+        echo json_encode($data);
+        exit;
     }
 
-    $name = $_POST['name']; // required
-    $email = $_POST['email']; // required
-    $company = $_POST['company']; // not required
-    $phone = $_POST['phone']; // not required
-    $message = $_POST['message']; // required
+    $mail = new PHPMailer();
 
+    $mail->From = $_POST['inputEmail'];
+    $mail->FromName = $_POST['inputName'];
+    $mail->AddAddress('jamestylerpatton@gmail.com');
+    $mail->Subject = "Portfolio Contact";
+    $mail->Body = "Name: " . $_POST['inputName'] . "\r\n\r\nMessage: " . stripslashes($_POST['inputMessage']);
 
-    //Lets worry about validation later and maybe with Angular
-    //$error_message = "";
-    //$email_exp = '/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/';
-
-    function clean_string($string) {
-      $bad = array("content-type","bcc:","to:","cc:","href");
-      return str_replace($bad,"",$string);
+    if (isset($_POST['ref'])) {
+        $mail->Body .= "\r\n\r\nRef: " . $_POST['ref'];
     }
 
-    $email_message .= "Name: ".clean_string($name)."\n";
-    $email_message .= "Email: ".clean_string($email)."\n";
-    $email_message .= "Company: ".clean_string($company)."\n";
-    $email_message .= "Phone: ".clean_string($phone)."\n";
-    $email_message .= "Message: ".clean_string($message)."\n";
+    if(!$mail->send()) {
+        $data = array('success' => false, 'message' => 'Message could not be sent. Mailer Error: ' . $mail->ErrorInfo);
+        echo json_encode($data);
+        exit;
+    }
 
-    $headers = 'From: '.$email_from."\r\n".
-	'Reply-To: '.$email_from."\r\n" .
-	'X-Mailer: PHP/' . phpversion();
-	@mail($email_to, $email_subject, $email_message, $headers);  
-
-?>
-
-Thanks!
-
-<?php
+    $data = array('success' => true, 'message' => 'Thanks! We have received your message.');
+    echo json_encode($data);
+} else {
+    $data = array('success' => false, 'message' => 'Please fill out the form completely.');
+    echo json_encode($data);
 }
-?>
