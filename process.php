@@ -28,31 +28,44 @@ $data 			= array(); 		// array to pass back data
 		$data['message'] = 'Your message has been sent!';
 	}
 
-	// return all our data to an AJAX call
-	echo json_encode($data);
+	
 
 // send email ==================================================================
 
-	if(isset($_POST['inputName']) && isset($_POST['inputEmail']) && isset($_POST['inputMessage'])){
-		$email_to = "jamestylerpatton@gmail.com";
-		$email_subject = "Suck a D!"
 
-		$send_name = $_POST['inputName'];
-		$email_from = $_POST['inputEmail'];
+	if(isset($_POST['inputName']) && isset($_POST['inputEmail']) && isset($_POST['inputMessage'])){
+		
+		$admin_email = "jamestylerpatton@gmail.com";
+		$subject = "Contact Form";
+		
+		$name = $_POST['inputName'];
+		$email = $_POST['inputEmail'];
 		$company = $_POST['inputCompany'];
 		$phone = $_POST['inputPhone'];
-		$message = $_POST['inputMessage'];
-
-		$email_message .= "Name: ".clean_string($send_name)."\n";
-	    $email_message .= "Email From: ".clean_string($email_from)."\n";
-	    $email_message .= "Company: ".clean_string($company)."\n";
-	    $email_message .= "Phone: ".clean_string($phone)."\n";
-	    $email_message .= "Message: ".clean_string($message)."\n";
-
-	    $headers = 'From: '.$email_from."\r\n".
-		'Reply-To: '.$email_from."\r\n" .
-		'X-Mailer: PHP/' . phpversion();	
-			 
-		@mail($email_to, $email_subject, $email_message, $headers); 
-
+		$comment = $_POST['inputMessage'];
+		
+		function clean_string($string) {
+	      $bad = array("content-type","bcc:","to:","cc:","href");	 
+	      return str_replace($bad,"",$string);
+	    }
+		
+		$whole_message .= "Name: ". clean_string($name) . "\n";
+		$whole_message .= "Email: ". clean_string($email) . "\n";
+		$whole_message .= "Company: ". clean_string($company) . "\n";
+		$whole_message .= "Phone: ". clean_string($phone) . "\n";
+		$whole_message .= "Message: ".clean_string($comment) . "\n";
+		
+		$headers = 'From: '.$email."\r\n".
+		'Reply-To: '.$email."\r\n" .
+		'X-Mailer: PHP/' . phpversion();
+		
+		mail($admin_email, $subject, $whole_message, $headers);
+		
+	}else{
+		$data['message'] = 'There are errors';
 	}
+
+	
+	
+	// return all our data to an AJAX call
+	echo json_encode($data);
