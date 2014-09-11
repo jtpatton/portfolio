@@ -17,43 +17,43 @@
 			http://www.chaosm.net/blog/2014/05/21/angularjs-contact-form-with-bootstrap-and-phpmailer/
 			http://www.freecontactform.com/email_form.php
 			-->
+				<div id="messages" class="well" ng-show="message">{{ message }}</div>
 
-				<form name="contactform">
+				<form name="contactform" ng-submit="processForm()">
+					
 					<div class="form-item" ng-class="{ 'has-error' : contactform.inputName.$invalid && !contactform.inputName.$pristine }">
 						<div class="item-left">
 							<label for="inputName">Name</label>
-							<input type="text" ng-model="formData.inputName" id="inputName" name="inputName" placeholder="Name*" ng-minlength="5" maxlength="30" autocomplete="off" required />
-							<!--<small ng-show="contactform.name.$invalid && !contactform.name.$pristine">This name is not valid</small>-->
+							<input type="text" ng-model="formData.inputName" name="inputName" placeholder="Name*" ng-minlength="5" maxlength="30" autocomplete="off" />
+							<small ng-show="errorName">{{ errorName }}</small>
 						</div>
 					</div>
 					<div class="form-item" ng-class="{ 'has-error' : contactform.inputEmail.$invalid && !contactform.inputEmail.$pristine }">
 						<div class="item-right">
 							<label for="inputEmail">Email</label>
-							<input type="email" ng-model="formData.inputEmail" id="inputEmail" name="inputEmail" placeholder="Email*" ng-minlength="5" maxlength="35" autocomplete="off" required />
+							<input type="email" ng-model="formData.inputEmail" name="inputEmail" placeholder="Email*" ng-minlength="5" maxlength="35" autocomplete="off" />
+							<small ng-show="errorEmail">{{ errorEmail }}</small>
 						</div>
 					</div>
 					<div class="form-item">
 						<div class="item-left">
 							<label for="inputCompany">Company</label>
-							<input type="text" ng-model="formData.inputCompany" id="inputCompany" name="inputCompany" placeholder="Company" autocomplete="off" />
+							<input type="text" ng-model="formData.inputCompany" name="inputCompany" placeholder="Company" autocomplete="off" />
 						</div>
 					</div>
 					<div class="form-item">
 						<div class="item-right">
 							<label for="inputPhone">Phone</label>
-							<input type="text" ng-model="formData.inputPhone" id="inputPhone" name="inputPhone" placeholder="Phone Number" autocomplete="off" />
+							<input type="text" ng-model="formData.inputPhone" name="inputPhone" placeholder="Phone Number" autocomplete="off" />
 						</div>
 					</div>
 					<div class="form-item message" ng-class="{ 'has-error' : contactform.inputMessage.$invalid && !contactform.inputMessage.$pristine }">
 						<label for="inputMessage">Message</label>
-						<textarea name="inputMessage" id="inputMessage" placeholder="Message*" ng-model="formData.inputMessage" ng-minlength="5" required></textarea>
-						
+						<textarea name="inputMessage" id="inputMessage" placeholder="Message*" ng-model="formData.inputMessage" ng-minlength="5"></textarea>
+						<small ng-show="errorMessage">{{ errorMessage }}</small>
 					</div>
-					<!-- <div class="submit">
-						<button type="submit" >Submit</button>
-					</div> -->
 					<div class="submit">
-						<input type="submit" value="submit" />
+						<button type="submit">Submit</button>
 					</div>
 
 				</form>

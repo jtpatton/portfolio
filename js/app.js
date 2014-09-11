@@ -34,8 +34,35 @@ app
 		$(".window-contain").draggable({handle: ".windowhead", containment: [ 105, 50, 10000, 10000]});
 	})
 	.controller('contactCtrl', function($scope, $http){
-		//http://www.chaosm.net/blog/2014/05/21/angularjs-contact-form-with-bootstrap-and-phpmailer/
-	    
+		// create a blank object to hold our form information
+		// $scope will allow this to pass between controller and view
+		$scope.formData = {};
+
+		// process the form
+		$scope.processForm = function() {
+			$http({
+		        method  : 'POST',
+		        url     : 'process.php',
+		        data    : $.param($scope.formData),  // pass in data as strings
+		        headers : { 'Content-Type': 'application/x-www-form-urlencoded' }  // set the headers so angular passing info as form data (not request payload)
+		    })
+		        .success(function(data) {
+		            console.log(data);
+
+		            if (!data.success) {
+		            	// if not successful, bind errors to error variables
+		                $scope.errorName = data.errors.inputName;
+		                $scope.errorEmail = data.errors.inputEmail;
+		                $scope.errorMessage = data.errors.inputMessage;
+		            } else {
+		            	// if successful, bind success message to message
+		                $scope.message = data.message;
+		            }
+		        });
+		    console.log($scope.formData);
+
+		};
+
 		
 		$(".window-contain").draggable({handle: ".windowhead", containment: [ 105, 50, 10000, 10000]});
 	})
