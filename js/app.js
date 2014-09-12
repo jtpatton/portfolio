@@ -34,6 +34,9 @@ app
 		$(".window-contain").draggable({handle: ".windowhead", containment: [ 105, 50, 10000, 10000]});
 	})
 	.controller('contactCtrl', function($scope, $http){
+		// http://scotch.io/tutorials/javascript/submitting-ajax-forms-the-angularjs-way
+		// http://scotch.io/tutorials/javascript/angularjs-form-validation
+
 		// create a blank object to hold our form information
 		// $scope will allow this to pass between controller and view
 		$scope.formData = {};
@@ -54,9 +57,20 @@ app
 		                $scope.errorName = data.errors.inputName;
 		                $scope.errorEmail = data.errors.inputEmail;
 		                $scope.errorMessage = data.errors.inputMessage;
+		                $scope.errorPhone = data.errors.inputPhone;
 		            } else {
 		            	// if successful, bind success message to message
+		            	$scope.errorName = "";
+		                $scope.errorEmail = "";
+		                $scope.errorPhone = "";
+		                $scope.errorMessage = "";
 		                $scope.message = data.message;
+		                
+		                $scope.formData.inputName = "";
+		                $scope.formData.inputEmail = "";
+		                $scope.formData.inputCompany = "";
+		                $scope.formData.inputPhone = "";
+		                $scope.formData.inputMessage = "";
 		            }
 		        });
 		    console.log($scope.formData);

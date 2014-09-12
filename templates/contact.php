@@ -6,32 +6,25 @@
 	
 	<div class="window contact">
 	
-		<h3>Want to hire me?</h3>
+		<h3>Send me a message</h3>
 		<div class="row">
 			<div class="col10 offset1">
 
-			<!--
-			https://docs.angularjs.org/guide/forms
-			http://scotch.io/tutorials/javascript/angularjs-form-validation
-			http://www.ng-newsletter.com/posts/validations.html
-			http://www.chaosm.net/blog/2014/05/21/angularjs-contact-form-with-bootstrap-and-phpmailer/
-			http://www.freecontactform.com/email_form.php
-			-->
-				<div id="messages" class="well" ng-show="message">{{ message }}</div>
+				<div id="form_submit_message" ng-show="message">{{ message }}</div>
 
-				<form name="contactform" ng-submit="processForm()">
+				<form name="contactform" ng-submit="processForm()" novalidate>
 					
-					<div class="form-item" ng-class="{ 'has-error' : contactform.inputName.$invalid && !contactform.inputName.$pristine }">
+					<div class="form-item" ng-class="{ 'has-error' : errorName }">
 						<div class="item-left">
 							<label for="inputName">Name</label>
-							<input type="text" ng-model="formData.inputName" name="inputName" placeholder="Name*" ng-minlength="5" maxlength="30" autocomplete="off" />
+							<input type="text" ng-model="formData.inputName" name="inputName" placeholder="Name*" ng-minlength="3" maxlength="30" autocomplete="off" required />
 							<small ng-show="errorName">{{ errorName }}</small>
 						</div>
 					</div>
-					<div class="form-item" ng-class="{ 'has-error' : contactform.inputEmail.$invalid && !contactform.inputEmail.$pristine }">
+					<div class="form-item" ng-class="{ 'has-error' : errorEmail }">
 						<div class="item-right">
 							<label for="inputEmail">Email</label>
-							<input type="email" ng-model="formData.inputEmail" name="inputEmail" placeholder="Email*" ng-minlength="5" maxlength="35" autocomplete="off" />
+							<input type="email" ng-model="formData.inputEmail" name="inputEmail" placeholder="Email*" ng-minlength="5" maxlength="35" autocomplete="off" required />
 							<small ng-show="errorEmail">{{ errorEmail }}</small>
 						</div>
 					</div>
@@ -41,15 +34,16 @@
 							<input type="text" ng-model="formData.inputCompany" name="inputCompany" placeholder="Company" autocomplete="off" />
 						</div>
 					</div>
-					<div class="form-item">
+					<div class="form-item" ng-class="{ 'has-error' : errorPhone }">
 						<div class="item-right">
 							<label for="inputPhone">Phone</label>
 							<input type="text" ng-model="formData.inputPhone" name="inputPhone" placeholder="Phone Number" autocomplete="off" />
+							<small ng-show="errorPhone">{{ errorPhone }}</small>
 						</div>
 					</div>
-					<div class="form-item message" ng-class="{ 'has-error' : contactform.inputMessage.$invalid && !contactform.inputMessage.$pristine }">
+					<div class="form-item message" ng-class="{ 'has-error' : errorMessage }">
 						<label for="inputMessage">Message</label>
-						<textarea name="inputMessage" id="inputMessage" placeholder="Message*" ng-model="formData.inputMessage" ng-minlength="5"></textarea>
+						<textarea name="inputMessage" id="inputMessage" placeholder="Message*" ng-model="formData.inputMessage" required></textarea>
 						<small ng-show="errorMessage">{{ errorMessage }}</small>
 					</div>
 					<div class="submit">

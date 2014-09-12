@@ -4,11 +4,18 @@ $errors         = array();  	// array to hold validation errors
 $data 			= array(); 		// array to pass back data
 
 // validate the variables ======================================================
-	if (empty($_POST['inputName']))
+	
+	$phoneRegex = "/^(\d[\s-]?)?[\(\[\s-]{0,2}?\d{3}[\)\]\s-]{0,2}?\d{3}[\s-]?\d{4}$/i";
+	$nameRegex = "/^[a-zA-Z ]*$/";
+
+	if (empty($_POST['inputName']) || !preg_match($nameRegex, ($_POST['inputName'])))
 		$errors['inputName'] = 'Name is required.';
 
-	if (empty($_POST['inputEmail']))
-		$errors['inputEmail'] = 'Email is required.';
+	if (empty($_POST['inputEmail']) || !filter_var(($_POST['inputEmail']), FILTER_VALIDATE_EMAIL))
+		$errors['inputEmail'] = 'Valid email is required.';
+
+	if (!empty($_POST['inputPhone']) && !preg_match($phoneRegex, ($_POST['inputPhone'])))
+		$errors['inputPhone'] = 'Not a valid phone number.';
 
 	if (empty($_POST['inputMessage']))
 		$errors['inputMessage'] = 'Message is required.';
@@ -38,11 +45,11 @@ $data 			= array(); 		// array to pass back data
 		$admin_email = "jamestylerpatton@gmail.com";
 		$subject = "Contact Form";
 		
-		$name = $_POST['inputName'];
-		$email = $_POST['inputEmail'];
-		$company = $_POST['inputCompany'];
-		$phone = $_POST['inputPhone'];
-		$comment = $_POST['inputMessage'];
+		$name = htmlspecialchars($_POST['inputName']);
+		$email = htmlspecialchars($_POST['inputEmail']);
+		$company = htmlspecialchars($_POST['inputCompany']);
+		$phone = htmlspecialchars($_POST['inputPhone']);
+		$comment = htmlspecialchars($_POST['inputMessage']);
 		
 		function clean_string($string) {
 	      $bad = array("content-type","bcc:","to:","cc:","href");	 
@@ -53,7 +60,7 @@ $data 			= array(); 		// array to pass back data
 		$whole_message .= "Email: ". clean_string($email) . "\n";
 		$whole_message .= "Company: ". clean_string($company) . "\n";
 		$whole_message .= "Phone: ". clean_string($phone) . "\n";
-		$whole_message .= "Message: ".clean_string($comment) . "\n";
+		$whole_message .= "Message: \n".clean_string($comment) . "\n";
 		
 		$headers = 'From: '.$email."\r\n".
 		'Reply-To: '.$email."\r\n" .
