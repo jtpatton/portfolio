@@ -57,21 +57,25 @@
 			<div class="col5 offset1">
 				<h4>Connect with me on:</h4>
 				<div class="icons">
-					<a class="social-icons" href="https://www.facebook.com/james.t.patton">
-						<img src="images/social-facebook-outline.png" onmouseover="this.src='images/social-facebook.png'" onmouseout="this.src='images/social-facebook-outline.png'" />
+					<a class="social-icons facebook" href="https://www.facebook.com/james.t.patton">
+						<img src="images/social-facebook-outline.png" alt="Facebook" />
 					</a>
-					<a class="social-icons" href="https://www.linkedin.com/profile/view?id=303249450&trk=nav_responsive_tab_profile_pic">
-						<img src="images/social-linkedin-outline.png" onmouseover="this.src='images/social-linkedin.png'" onmouseout="this.src='images/social-linkedin-outline.png'" />
+					<a class="social-icons linkedin" href="https://www.linkedin.com/profile/view?id=303249450&trk=nav_responsive_tab_profile_pic">
+						<img src="images/social-linkedin-outline.png" alt="LinkedIn" />
 					</a>
-					<a class="social-icons" href="https://github.com/jtpatton">
-						<img src="images/social-github-outline.png" onmouseover="this.src='images/social-github.png'" onmouseout="this.src='images/social-github-outline.png'" />
+					<a class="social-icons github" href="https://github.com/jtpatton">
+						<img src="images/social-github-outline.png" alt="Github" />
 					</a>
 				</div>
 			</div>
 			<div class="col5">
-				<h4>Contact Details</h4>
-				Phone: (626)733-6030
-				<br> Email: jamestylerpatton@gmail.com
+				<h4>Or email me...</h4>
+				<a class="social-icons email" href="mailto:jamestylerpatton@gmail.com">
+					<div class="email-img-contain">
+					<img src="images/ios7-email-outline.png" alt="Email" />
+					</div>
+					jamestylerpatton@gmail.com
+				</a>
 			</div>
 		</div>
 	

@@ -77,6 +77,40 @@ app
 
 		};
 
+		$('.social-icons.facebook').hover(
+			function(){
+				$('.social-icons.facebook img').attr('src', 'images/social-facebook.png');
+			},
+			function(){
+				$('.social-icons.facebook img').attr('src', 'images/social-facebook-outline.png');
+			}
+		);
+		$('.social-icons.linkedin').hover(
+			function(){
+				$('.social-icons.linkedin img').attr('src', 'images/social-linkedin.png');
+			},
+			function(){
+				$('.social-icons.linkedin img').attr('src', 'images/social-linkedin-outline.png');
+			}
+		);
+		$('.social-icons.github').hover(
+			function(){
+				$('.social-icons.github img').attr('src', 'images/social-github.png');
+			},
+			function(){
+				$('.social-icons.github img').attr('src', 'images/social-github-outline.png');
+			}
+		);
+
+		$('.social-icons.email').hover(
+			function(){
+				$('.social-icons.email img').attr('src', 'images/ios7-email.png');
+			},
+			function(){
+				$('.social-icons.email img').attr('src', 'images/ios7-email-outline.png');
+			}
+		);
+
 		
 		$(".window-contain").draggable({handle: ".windowhead", containment: [ 105, 50, 10000, 10000]});
 	})

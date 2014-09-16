@@ -411,6 +411,20 @@ a.download-resume{
 	width: 80%;
 }
 
+#portrait{
+	/*background-size: contain;*/
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 0;
+	padding-top: 90%;
+	background-image: url(../images/portrait.jpg);
+	width: 90%;
+	@include transition(.6s);
+}
+#portrait:hover{
+	background-image: url(../images/portrait-3.jpg);
+}
+
 // Contact
 
 label{
@@ -537,6 +551,21 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill{
 #form_submit_message{
 	text-align: center;
 }
+.email-img-contain{
+	width: 50px;
+	display: block;
+	float: left;
+	height: 50px;
+	margin-right: 10px;
+}
+.social-icons.email{
+	width: auto;
+	line-height: 50px;
+}
+.social-icons.email:hover{
+	color: #000;
+	opacity: .8;
+}
 
 @media (max-width: 1100px){
 	.portfolio [class*='col'],
@@ -552,10 +581,15 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill{
 		margin-left: 0;
 	}
 
-	.about img{
-		width: 50%;
+	/*.about img{
+		width: 70%;
 		margin: 0 auto 40px;
 		display: block;
+	}*/
+	#portrait{
+		width: 70%;
+		padding-top: 70%;
+		margin: 10px auto;
 	}
 
 	.social-icons{
