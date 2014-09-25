@@ -124,6 +124,13 @@ app
 	})
 	.controller('portfolioCtrl', function($scope){
 		$(".window-contain").draggable({handle: ".windowhead", containment: [ 105, 50, 10000, 10000]});
+		$(function(){
+			$('.portfolio > .row').hover(function(){
+				$(this).children('.col6').children('a').children('img').addClass('hover');
+			},function(){
+				$(this).children('.col6').children('a').children('img').removeClass('hover');
+			});
+		});
 	})
 	.controller('resumeCtrl', function($scope){
 		$(".window-contain").draggable({handle: ".windowhead", containment: [ 105, 50, 10000, 10000]});

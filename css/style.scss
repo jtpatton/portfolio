@@ -362,9 +362,8 @@ img.sitelogo{
 	@include transition(.4s);
 	position: relative;
 }
-.portfolio img:hover{
+.portfolio img.hover{
 	/*opacity: 0.8;*/
-	width: 100%;
 	margin-left: 20px;
 }
 .portfolio > .row{
