@@ -126,7 +126,9 @@ app
 		$(".window-contain").draggable({handle: ".windowhead", containment: [ 105, 50, 10000, 10000]});
 		$(function(){
 			$('.portfolio > .row').hover(function(){
-				$(this).children('.col6').children('a').children('img').addClass('hover');
+				if(window.innerWidth > 1100){
+					$(this).children('.col6').children('a').children('img').addClass('hover');
+				}
 			},function(){
 				$(this).children('.col6').children('a').children('img').removeClass('hover');
 			});
