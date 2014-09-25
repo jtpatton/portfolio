@@ -359,6 +359,13 @@ img.sitelogo{
 .portfolio img{
 	width: 100%;
 	height: 100%;
+	@include transition(.4s);
+	position: relative;
+}
+.portfolio img:hover{
+	/*opacity: 0.8;*/
+	width: 100%;
+	margin-left: 20px;
 }
 .portfolio > .row{
 	margin-bottom: 80px;
@@ -423,6 +430,7 @@ a.download-resume{
 	background-image: url(../images/portrait.jpg);
 	width: 90%;
 	@include transition(.6s);
+	margin-top: 40px;
 }
 #portrait:hover{
 	background-image: url(../images/portrait-3.jpg);

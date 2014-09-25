@@ -34,11 +34,6 @@ app
 		$(".window-contain").draggable({handle: ".windowhead", containment: [ 105, 50, 10000, 10000]});
 	})
 	.controller('contactCtrl', function($scope, $http){
-		// http://scotch.io/tutorials/javascript/submitting-ajax-forms-the-angularjs-way
-		// http://scotch.io/tutorials/javascript/angularjs-form-validation
-
-		// create a blank object to hold our form information
-		// $scope will allow this to pass between controller and view
 		$scope.formData = {};
 
 		// process the form
@@ -120,7 +115,7 @@ app
         //typed.js for home screen
         $(function(){
             $(".typed").typed({
-                strings: ["Web Designer", "Web Developer", "UX Designer", "UI Designer", "Graphic Artist"],
+                strings: ["Code Warrior", "Web Designer", "Web Developer", "UX Designer", "UI Designer", "Graphic Artist"],
                 typeSpeed: 70,
                 backDelay: 2500,
                 loop: true
