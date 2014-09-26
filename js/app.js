@@ -30,10 +30,10 @@ app
 				controller: 'contactCtrl'
 			})
 	}])
-	.controller('aboutCtrl', function($scope){
+	.controller('aboutCtrl', ['$scope', function($scope){
 		$(".window-contain").draggable({handle: ".windowhead", containment: [ 105, 50, 10000, 10000]});
-	})
-	.controller('contactCtrl', function($scope, $http){
+	}])
+	.controller('contactCtrl',['$scope', '$http', function($scope, $http){
 		$scope.formData = {};
 
 		// process the form
@@ -108,8 +108,8 @@ app
 
 		
 		$(".window-contain").draggable({handle: ".windowhead", containment: [ 105, 50, 10000, 10000]});
-	})
-	.controller('homeCtrl', function($scope){
+	}])
+	.controller('homeCtrl',['$scope', function($scope){
 		$scope.title = "James Tyler Patton",
 		$scope.pros = ["Web", "UX", "UI"],
         //typed.js for home screen
@@ -121,8 +121,8 @@ app
                 loop: true
             });
         });
-	})
-	.controller('portfolioCtrl', function($scope){
+	}])
+	.controller('portfolioCtrl',['$scope', function($scope){
 		$(".window-contain").draggable({handle: ".windowhead", containment: [ 105, 50, 10000, 10000]});
 		$(function(){
 			$('.portfolio > .row').hover(function(){
@@ -133,10 +133,10 @@ app
 				$(this).children('.col6').children('a').children('img').removeClass('hover');
 			});
 		});
-	})
-	.controller('resumeCtrl', function($scope){
+	}])
+	.controller('resumeCtrl',['$scope', function($scope){
 		$(".window-contain").draggable({handle: ".windowhead", containment: [ 105, 50, 10000, 10000]});
-	})
+	}])
 
 //Get the time, used for clock on desktop
 app.run(function($rootScope,$interval){
