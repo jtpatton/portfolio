@@ -13,3 +13,11 @@ $(function(){
         loop: false
     });
 });
+
+$(function(){
+  $(window).resize(function(){
+    if($(window).innerWidth() < 761){
+      $('.window-contain').css({'left': '0', 'top': '0'});
+    }
+  });
+});
