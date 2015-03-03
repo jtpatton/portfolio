@@ -38,6 +38,7 @@ app
 
 		// process the form
 		$scope.processForm = function() {
+			$scope.start();
 			$http({
 		        method  : 'POST',
 		        url     : 'process.php',
@@ -47,6 +48,7 @@ app
 		        .success(function(data) {
 		            console.log(data);
 
+		            $scope.complete();
 		            if (!data.success) {
 		            	// if not successful, bind errors to error variables
 		                $scope.errorName = data.errors.inputName;
@@ -70,6 +72,13 @@ app
 		        });
 		    console.log($scope.formData);
 
+		};
+
+		$scope.start = function(){
+			console.log('Sending Message');
+		};
+		$scope.complete = function(){
+			console.log('Message Sent');
 		};
 
 		$('.social-icons.facebook').hover(
