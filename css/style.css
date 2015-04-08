@@ -370,12 +370,13 @@ a.download-resume {
   width: 80%; }
 
 #portrait {
-  /*background-size: contain;*/
+  position: relative;
   background-size: cover;
   background-repeat: no-repeat;
   height: 0;
   padding-top: 90%;
-  background-image: url(../images/portrait.jpg);
+  background-image: url(../images/portrait-final.jpg);
+  background-position: 0% 0%;
   width: 90%;
   -webkit-transition: all 0.6s;
   -moz-transition: all 0.6s;
@@ -383,9 +384,24 @@ a.download-resume {
   -o-transition: all 0.6s;
   transition: all 0.6s;
   margin-top: 40px; }
-
-#portrait:hover {
-  background-image: url(../images/portrait-3.jpg); }
+  #portrait:after {
+    content: "";
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    background-image: url(../images/portrait-final.jpg);
+    background-size: cover;
+    background-position: 0% 100%;
+    opacity: 0;
+    -webkit-transition: all 0.6s;
+    -moz-transition: all 0.6s;
+    -ms-transition: all 0.6s;
+    -o-transition: all 0.6s;
+    transition: all 0.6s; }
+  #portrait:hover:after {
+    opacity: 1; }
 
 label {
   display: none; }

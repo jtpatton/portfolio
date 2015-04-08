@@ -81,8 +81,8 @@ RewriteRule ^(.*)$ http://www.jtpatton.com/$1 [L,R=301,NC]
 # Remove the following line if you want to block blank referrer too
 RewriteCond %{HTTP_REFERER} !^$
 
-RewriteCond %{HTTP_REFERER} !^http(s)?://(.+\.)?jtpatton.com [NC]
-RewriteRule \.(jpg|jpeg|png|gif|bmp)$ - [NC,F,L]
+# RewriteCond %{HTTP_REFERER} !^http(s)?://(.+\.)?jtpatton.com [NC]
+# RewriteRule \.(jpg|jpeg|png|gif|bmp)$ - [NC,F,L]
 
 <IfModule mod_expires.c>
     ExpiresActive on

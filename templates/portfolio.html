@@ -7,152 +7,17 @@
 	<div class="window portfolio">
 
 		<!-- Webhostinghub -->
-		<div class="row">
+		<div class="row" ng-repeat="piece in pieces">
 			<div class="col6">
-				<a target="_blank" href="http://www.webhostinghub.com"><img src="images/webhostinghub.jpg" alt="Project Image"></a>
+				<a target="_blank" ng-href="{{piece.url}}"><img ng-src="images/{{piece.img}}" alt="Project Image"></a>
 			</div>
 			<div class="col5 offset1">
-				<a target="_blank" href="http://www.webhostinghub.com"><h3>Web Hosting Hub</h3></a>
-				<p class="tech-used">- HTML5, CSS3, JavaScript, PHP, MySQL, Silex -</p>
-				<p>After about 4 months of working at InMotion Hosting, I got put as lead front-end web developer on the Web Hosting Hub redesign project. This job consisted of me setting up the PHP framework the site runs on, and writing the HTML, CSS and JavaScript.</p>
+				<a target="_blank" ng-href="{{piece.url}}"><h3>{{piece.title}}</h3></a>
+				<p class="tech-used">- {{piece.tech}} -</p>
+				<p>{{piece.description}}</p>
 			</div>
 		</div>
 
-		<!-- InMotion Hosting -->
-		<div class="row">
-			<div class="col6">
-				<a target="_blank" href="http://inmotionhosting.com"><img src="images/inmotion.jpg" alt="Project Image"></a>
-			</div>
-			<div class="col5 offset1">
-				<a target="_blank" href="http://inmotionhosting.com"><h3>InMotion Hosting</h3></a>
-				<p class="tech-used">- HTML5, CSS3, JavaScript, PHP, Silex -</p>
-				<p>My main project at InMotion Hosting consists of me turning the site responsive by restructuring the layout for Twitter Bootstrap. I also take care of maintaining both front-end and back-end code for both inmotionhosting.com and webhostinghub.com.</p>
-			</div>
-		</div>
-
-		<!-- Bijoux Mimi -->
-		<!-- <div class="row">
-			<div class="col6">
-				<a target="_blank" href="https://bijouxmimi.com"><img src="images/bijouxmimi.jpg" alt="Project Image"></a>
-			</div>
-			<div class="col5 offset1">
-				<a target="_blank" href="https://bijouxmimi.com"><h3>Bijoux Mimi Shop</h3></a>
-				<p class="tech-used">- Magento, PHP, HTML5, CSS -</p>
-				<p>Bijoux Mimi sells high-quality vintage and romantic jewelry with style that will last for ages. This online shop uses Magento as the backend CMS and was created to replace the owner's popular Etsy shop.</p>
-			</div>
-		</div> -->
-
-		<!-- StreamQuote -->
-		<div class="row">
-			<div class="col6">
-				<a target="_blank" href="http://jtpatton.com/streamquote"><img src="images/streamquote.jpg" alt="Project Image"></a>
-			</div>
-			<div class="col5 offset1">
-				<a target="_blank" href="http://jtpatton.com/streamquote"><h3>StreamQuote</h3></a>
-				<p class="tech-used">- HTML5, CSS3, JavaScript, jQuery -</p>
-				<p>StreamQuote is an interactive quote site where the user hovers over an image of a famous/historical figure, and their name and a quote from them appears. This was built because other famous quote sites are either not fun to use or are hard to look at.</p>
-			</div>
-		</div>
-
-		<!-- Summit Theme -->
-		<div class="row">
-			<div class="col6">
-				<a target="_blank" href="http://jtpatton.com/blog"><img src="images/summit.jpg" alt="Project Image"></a>
-			</div>
-			<div class="col5 offset1">
-				<a target="_blank" href="http://jtpatton.com/blog"><h3>Summit Theme</h3></a>
-				<p class="tech-used">- WordPress, HTML5, CSS3, jQuery, PHP -</p>
-				<p>Summit is a theme I created from scratch for WordPress with the help of the SiteGround and Themeshaper WordPress tutorials. It was created as a portfolio website others could use and modify, and I am planning on putting it up for sale on Theme Forest.</p>
-			</div>
-		</div>
-
-		<!-- Shred List -->
-		<div class="row">
-			<div class="col6">
-				<a target="_blank" href="http://jtpatton.com/shredlist"><img src="images/shredlist.jpg" alt="Project Image"></a>
-			</div>
-			<div class="col5 offset1">
-				<a target="_blank" href="http://jtpatton.com/shredlist"><h3>Shred List</h3></a>
-				<p class="tech-used">- Ratchet, HTML5, CSS3, JavaScript, jQuery -</p>
-				<p>This app is for snowboarders who want to create their own list of tricks to complete during the snowboard season. They can manage how many tricks they have completed and how many are on their list. This is created in HTML and JavaScript with a mobile framework called Ratchet.</p>
-			</div>
-		</div>
-
-		<!-- EduChord -->
-		<div class="row">
-			<div class="col6">
-				<a target="_blank" href="http://jtpatton.com/educhord"><img src="images/educhord.jpg" alt="Project Image"></a>
-			</div>
-			<div class="col5 offset1">
-				<a target="_blank" href="http://jtpatton.com/educhord"><h3>EduChord</h3></a>
-				<p class="tech-used">- HTML5, CSS3, JavaScript, jQuery, Pure -</p>
-				<p>EduChord is an interactive way to learn how to learn and play guitar chords for motivated beginners. There is even an optional quiz to complete once the user feels confident enough in their basic guitar chord knowledge. This site uses the Pure CSS framework and the chords are made completely in HTML.</p>
-			</div>
-		</div>
-
-		<!-- Walden -->
-		<div class="row">
-			<div class="col6">
-				<a target="_blank" href="http://jtpatton.com/walden"><img src="images/walden.jpg" alt="Project Image"></a>
-			</div>
-			<div class="col5 offset1">
-				<a target="_blank" href="http://jtpatton.com/walden"><h3>Walden</h3></a>
-				<p class="tech-used">- HTML5, CSS3, jQuery, Responsive -</p>
-				<p>Walden is a fictional skateboard company website made to promote their skateboards and skateboarding in general. The audience of this site is meant to be more expeienced skaters. This site won me 2 best of quarter awards for Digital Site Identity and Intermediate Web Design.</p>
-			</div>
-		</div>
-
-		<!-- JS Chat -->
-		<div class="row">
-			<div class="col6">
-				<a target="_blank" href="http://jtpatton.com/chat"><img src="images/chat.jpg" alt="Project Image"></a>
-			</div>
-			<div class="col5 offset1">
-				<a target="_blank" href="http://jtpatton.com/chat"><h3>JS Chat</h3></a>
-				<p class="tech-used">- HTML5, CSS3, JavaScript, Firebase, jQuery -</p>
-				<p>JS Chat is a realtime chatroom made entirely from JavaScript and HTML... No PHP or MySql included. It was created using the Firebase API, a realtime backend service helping take a load off my server. </p>
-			</div>
-		</div>
-
-		<!-- Fusion Fest -->
-		<!--
-		<div class="row">
-			<div class="col6">
-				<a target="_blank" href="http://jtpatton.com/fusionfest"><img src="images/fusionfest.jpg" alt="Project Image"></a>
-			</div>
-			<div class="col5 offset1">
-				<a target="_blank" href="http://jtpatton.com/fusionfest"><h3>Fusion Fest</h3></a>
-				<p class="tech-used">- HTML5, CSS3, JavaScript, jQuery -</p>
-				<p>Fusion Fest is a mock festival site to convince people who aren't familiar with Electric Dance Music (EDM) to go to an EDM festival by having the artists attending mix songs from Rock music.</p>
-			</div>
-		</div>-->
-
-		<!-- Ride A Bike -->
-		<!--
-		<div class="row">
-			<div class="col6">
-				<a>
-					<img src="images/rideabike.jpg" alt="Project Image">
-				</a>
-			</div>
-			<div class="col5 offset1">
-				<h3>Ride A Bike</h3>
-				<p class="tech-used">- HTML5, CSS3, JavaScript, Concise -</p>
-				<p>Ride A Bike is an informative website to encourage young adults to ride their bike to work as an alternative form of transportation for health reasons and to save the environment. This site uses the Concise CSS framework.</p>
-			</div>
-		</div>-->
-
-		<!-- Skateboard Illustration -->
-		<div class="row">
-			<div class="col6">
-				<a><img src="images/illustration-skateboard.jpg" alt="Photorealistic Skateboard"></a>
-			</div>
-			<div class="col5 offset1">
-				<h3>Skateboard Illustration</h3>
-				<p class="tech-used">- Adobe Illustrator -</p>
-				<p>This photo-realistic illustration of a skateboard took about 40 hours to create using only illustrator. </p>
-			</div>
-		</div>		
 		
 	</div>
 </div>
