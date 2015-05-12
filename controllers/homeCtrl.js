@@ -5,7 +5,7 @@ app
         //typed.js for home screen
         $(function(){
             $(".typed").typed({
-                strings: ["Code Warrior", "Web Designer", "Web Developer", "UX Designer", "UI Designer", "Graphic Artist"],
+                strings: ["Web Designer", "Web Developer", "UX Designer", "UI Designer", "Front-end Developer"],
                 typeSpeed: 70,
                 backDelay: 2500,
                 loop: true

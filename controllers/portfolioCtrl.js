@@ -1,6 +1,6 @@
 app
 	.controller('portfolioCtrl',['$scope', function($scope){
-        $(".window-contain").draggable({handle: ".windowhead", containment: [ 105, 50, 10000, 10000]});
+        jQuery(".window-contain").draggable({handle: ".windowhead", containment: [ 105, 50, 10000, 10000]});
         
         $scope.pieces = [
             {
@@ -45,13 +45,13 @@ app
                 tech: 'HTML5, CSS3, JavaScript, jQuery, Pure',
                 description: 'EduChord is an interactive way to learn how to learn and play guitar chords for motivated beginners. There is even an optional quiz to complete once the user feels confident enough in their basic guitar chord knowledge. This site uses the Pure CSS framework and the chords are made completely in HTML.'
             },
-            {
-                title: 'Walden',
-                img: 'walden.jpg',
-                url: 'http://jtpatton.com/walden',
-                tech: 'HTML5, CSS3, jQuery, Responsive',
-                description: 'Walden is a fictional skateboard company website made to promote their skateboards and skateboarding in general. The audience of this site is meant to be more expeienced skaters. This site won me 2 best of quarter awards for Digital Site Identity and Intermediate Web Design.'
-            },
+            // {
+            //     title: 'Walden',
+            //     img: 'walden.jpg',
+            //     url: 'http://jtpatton.com/walden',
+            //     tech: 'HTML5, CSS3, jQuery, Responsive',
+            //     description: 'Walden is a fictional skateboard company website made to promote their skateboards and skateboarding in general. The audience of this site is meant to be more expeienced skaters. This site won me 2 best of quarter awards for Digital Site Identity and Intermediate Web Design.'
+            // },
             {
                 title: 'JS Chat',
                 img: 'chat.jpg',
@@ -65,15 +65,6 @@ app
                 tech: 'Adobe Illustrator',
                 description: 'This photo-realistic illustration of a skateboard took about 40 hours to create using only illustrator.'
             }
-        ];
+        ]
 
-        $(function(){
-            $('.portfolio > .row').hover(function(){
-                if(window.innerWidth > 1100){
-                    $(this).children('.col6').children('a').children('img').addClass('hover');
-                }
-            },function(){
-                $(this).children('.col6').children('a').children('img').removeClass('hover');
-            });
-        });
-    }])
+    }]);

@@ -1,4 +1,4 @@
-var app = angular.module('portfolio', ['ui.router', 'HashBangURLs'])
+var app = angular.module('portfolio', ['ui.router'])
 
 app
 	.config(['$urlRouterProvider', '$stateProvider', function($urlRouterProvider, $stateProvider){
@@ -36,8 +36,3 @@ app.run(function($rootScope,$interval){
     $rootScope.AssignedDate = Date;
     $interval(function(){},1000)
 })
-
-//Change hashbang from # to #!, which allows Google to index pages
-angular.module('HashBangURLs', []).config(['$locationProvider', function($location) {
-  $location.hashPrefix('!');
-}]);

@@ -1,6 +1,6 @@
 <div class="window-contain">
 	<div class="windowhead hidden-phone">
-		<a href="#!" class="exit"></a>
+		<a ui-sref="home" class="exit"></a>
 		<h2>Contact</h2>
 	</div>
 	

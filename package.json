@@ -1,0 +1,26 @@
+{
+  "name": "jtp-portfolio",
+  "version": "1.0.0",
+  "description": "The online portfolio of web designer/developer, James Tyler Patton",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp": "^3.8.11",
+    "gulp-notify": "^2.2.0",
+    "gulp-ruby-sass": "^1.0.5",
+    "gulp-sass": "^2.0.0",
+    "gulp-uglifycss": "^1.0.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jamestylerpatton/portfolio.git"
+  },
+  "author": "James Tyler Patton",
+  "bugs": {
+    "url": "https://github.com/jamestylerpatton/portfolio/issues"
+  },
+  "homepage": "https://github.com/jamestylerpatton/portfolio"
+}

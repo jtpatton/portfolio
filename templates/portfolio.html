@@ -1,13 +1,13 @@
 <div class="window-contain">
 	<div class="windowhead hidden-phone">
-		<a href="#!" class="exit"></a>
+		<a ui-sref="home" class="exit"></a>
 		<h2>Portfolio</h2>
 	</div>
 	
 	<div class="window portfolio">
 
 		<!-- Webhostinghub -->
-		<div class="row" ng-repeat="piece in pieces">
+		<div class="row" ng-class="{active: hover}" ng-mouseenter="hover = true" ng-mouseleave="hover = false" ng-repeat="piece in pieces">
 			<div class="col6">
 				<a target="_blank" ng-href="{{piece.url}}"><img ng-src="images/{{piece.img}}" alt="Project Image"></a>
 			</div>
